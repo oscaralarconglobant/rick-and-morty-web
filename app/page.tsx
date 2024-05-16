@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { CharacterItem, InfiniteList, Navbar } from "./components";
 import { useGetCharacters } from "./hooks";
 import { ICharacter } from "./interfaces";
@@ -10,11 +11,13 @@ export default function Home() {
 
   return (
     <PageContainer>
-      <Navbar hasSearch/>
-      <InfiniteList<ICharacter>
-        getData={getCharacters}
-        component={(item) => <CharacterItem key={item.id} item={item} />}
-      />
+      <Suspense>
+        <Navbar hasSearch />
+        <InfiniteList<ICharacter>
+          getData={getCharacters}
+          component={(item) => <CharacterItem key={item.id} item={item} />}
+        />
+      </Suspense>
     </PageContainer>
   );
 }
