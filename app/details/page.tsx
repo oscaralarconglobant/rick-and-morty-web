@@ -9,10 +9,10 @@ import {
   DetailContainer,
   ListItemV,
   ListV,
-  StyledDetailCharacterImage
+  StyledDetailCharacterImage,
 } from "@/styles";
 import { useSearchParams } from "next/navigation";
-import React, { Suspense } from "react";
+import React from "react";
 
 const Page: React.FC = () => {
   const searchParams = useSearchParams();
@@ -22,29 +22,27 @@ const Page: React.FC = () => {
 
   return (
     <DetailContainer>
-      <Suspense fallback={<p>Cargando...</p>}>
-        <CardContainer>
-          <StyledDetailCharacterImage
-            className="animation"
-            src={character.image}
-          />
-          <CharacterInfo>
-            <CharacterTitle>{character.name}</CharacterTitle>
-            <CharacterDetail>Estatus: {character.status}</CharacterDetail>
-            <CharacterDetail>Especie: {character.species}</CharacterDetail>
-            <CharacterDetail>Género: {character.gender}</CharacterDetail>
-            <CharacterDetail>Origen: {character.origin?.name}</CharacterDetail>
-            <CharacterDetail>
-              Episodios:
-              <ListV>
-                {character.episode?.map((item) => (
-                  <ListItemV key={item}>{item}</ListItemV>
-                ))}
-              </ListV>
-            </CharacterDetail>
-          </CharacterInfo>
-        </CardContainer>
-      </Suspense>
+      <CardContainer>
+        <StyledDetailCharacterImage
+          className="animation"
+          src={character.image}
+        />
+        <CharacterInfo>
+          <CharacterTitle>{character.name}</CharacterTitle>
+          <CharacterDetail>Estatus: {character.status}</CharacterDetail>
+          <CharacterDetail>Especie: {character.species}</CharacterDetail>
+          <CharacterDetail>Género: {character.gender}</CharacterDetail>
+          <CharacterDetail>Origen: {character.origin?.name}</CharacterDetail>
+          <CharacterDetail>
+            Episodios:
+            <ListV>
+              {character.episode?.map((item) => (
+                <ListItemV key={item}>{item}</ListItemV>
+              ))}
+            </ListV>
+          </CharacterDetail>
+        </CharacterInfo>
+      </CardContainer>
     </DetailContainer>
   );
 };
