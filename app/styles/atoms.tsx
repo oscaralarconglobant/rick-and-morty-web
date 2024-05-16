@@ -45,6 +45,8 @@ export const FilterInput = styled.input`
 
 export const StyledCharacterItem = styled(Link)`
   flex: 1;
+  max-width: 361px;
+  max-height: 364px;
   border-radius: 13px;
   background-color: #24325fff;
   border-color: #24325fff;

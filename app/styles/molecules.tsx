@@ -10,6 +10,7 @@ export const ListH = styled.ul`
   flex-wrap: wrap;
   gap: 20px;
 `;
+
 export const ListV = styled.ul`
   flex: 1;
   flex-direction: column;
