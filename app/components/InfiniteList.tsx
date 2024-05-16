@@ -51,7 +51,7 @@ export const InfiniteList = <T,>({ getData, component }: IProps<T>) => {
 
   const handleLoadMore = useCallback(() => {
     setPage(page + 1);
-  }, []);
+  }, [page]);
 
   const renderList = () => {
     return items.map(component);
